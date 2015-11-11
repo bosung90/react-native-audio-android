@@ -41,7 +41,7 @@ public class AudioAndroid extends ReactContextBaseJavaModule
     {
         Toast.makeText(getReactApplicationContext(), "recordiung...", Toast.LENGTH_SHORT).show();
         mRecorder = new MediaRecorder();
-        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mRecorder.setOutputFile(mFileName);
         mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
