@@ -1,5 +1,7 @@
 package com.myfirstreactnative;
 
+import android.content.Context;
+
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
 import com.facebook.react.bridge.NativeModule;
