@@ -1,7 +1,7 @@
 def config = project.hasProperty("react") ? project.react : [];
 
 def bundleAssetName = config.bundleAssetName ?: "index.android.bundle"
-def entryFile = config.entryFile ?: "index.android.js"
+def entryFile = config.entryFile ?: "index.js"
 
 // because elvis operator
 def elvisFile(thing) {
