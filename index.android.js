@@ -6,6 +6,8 @@
 
 const React = require('react-native')
 const AudioAndroid = require('./custom_modules/android/AudioAndroid')
+const LoginPage = require('./components/pages/LoginPage')
+
 const {
 	AppRegistry,
 	StyleSheet,
@@ -26,7 +28,13 @@ const MyFirstReactNative = React.createClass({
 	},
 	render() {
 		return (
-			<View style={styles.container}>
+			<LoginPage />
+
+		)
+	}
+})
+
+{/*			<View style={styles.container}>
 				<TouchableHighlight onPress={this._record}>
 					<Text style={styles.welcome}>
 						Record
@@ -42,17 +50,14 @@ const MyFirstReactNative = React.createClass({
 						Play
 					</Text>
 				</TouchableHighlight>
-			</View>
-		)
-	}
-})
+			</View>*/}
 
 const styles = StyleSheet.create({
 		container: {
 				flex: 1,
 				justifyContent: 'center',
 				alignItems: 'center',
-				backgroundColor: '#F5FCFF',
+				backgroundColor: '#57BDCB',
 		},
 		welcome: {
 				fontSize: 20,
