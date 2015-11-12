@@ -6,6 +6,8 @@ const {
 	View,
 	TouchableHighlight,
 	TextInput,
+	ToastAndroid,
+	Platform,
 } = React
 
 let LoginPage = React.createClass({
@@ -15,6 +17,22 @@ let LoginPage = React.createClass({
 			Username: '',
 			Password: '',
 		})
+	},
+
+	_onPressLoginButton() {
+		if(Platform.OS === 'android') {
+			ToastAndroid.show('_onPressLoginButton', ToastAndroid.SHORT)
+		} else if(Platform.OS === 'ios') {
+			alert('_onPressLoginButton')
+		}
+	},
+
+	_onPressForgotPasswordButton() {
+		if(Platform.OS === 'android') {
+			ToastAndroid.show('_onPressForgotPasswordButton', ToastAndroid.SHORT)
+		} else if(Platform.OS === 'ios') {
+			alert('_onPressForgotPasswordButton')
+		}
 	},
 
 	render(){
@@ -41,13 +59,13 @@ let LoginPage = React.createClass({
 						value={this.state.Password} />
 				</View>
 				<TouchableHighlight underlayColor='clear' 
-					onPress={this._onPressButton}>
+					onPress={this._onPressLoginButton}>
 					<View style={{backgroundColor: '#FEBD42', borderRadius: 25, width: 200 }}>
 						<Text style={styles.loginText}>Log In</Text>
 					</View>
 				</TouchableHighlight>
 				<TouchableHighlight underlayColor='clear' 
-					onPress={this._onPressButton}>
+					onPress={this._onPressForgotPasswordButton}>
 					<View style={[{width: 200 }, styles.forgotPassword]}>
 						<Text style={styles.forgotPassword}>Forgot password?</Text>
 					</View>
