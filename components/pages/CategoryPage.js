@@ -12,7 +12,7 @@ const {
 
 const CategoryPage = React.createClass({
 	_onPressCategoryItem(e) {
-		this.props.navigator.push({ id: 'phrase', category: e })
+		this.props.navigator.push({ id: 'phrase', category: e.category, categoryColor: e.categoryColor })
 	},
 	render(){
 		return(
@@ -23,37 +23,37 @@ const CategoryPage = React.createClass({
 				</View>
 				<View style={styles.categoryContainer}>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressCategoryItem.bind(this, 'city')}>
+						onPress={this._onPressCategoryItem.bind(this, {category: 'city', categoryColor: styles.city} )}>
 						<View style={[styles.categoryItem, styles.city]}>
 							<Text style={styles.white}>Visit the city</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressCategoryItem.bind(this, 'food')}>
+						onPress={this._onPressCategoryItem.bind(this, {category: 'food', categoryColor: styles.food})}>
 						<View style={[styles.categoryItem, styles.food]}>
 							<Text style={styles.white}>Eat delicious food</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressCategoryItem.bind(this, 'nature')}>
+						onPress={this._onPressCategoryItem.bind(this, {category: 'nature', categoryColor: styles.nature})}>
 						<View style={[styles.categoryItem, styles.nature]}>
 							<Text style={styles.white}>Explore nature</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressCategoryItem.bind(this, 'market')}>
+						onPress={this._onPressCategoryItem.bind(this, {category: 'market', categoryColor: styles.market})}>
 						<View style={[styles.categoryItem, styles.market]}>
 							<Text style={styles.white}>Go to the market</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressCategoryItem.bind(this, 'landmark')}>
+						onPress={this._onPressCategoryItem.bind(this, {category: 'landmark', categoryColor: styles.landmark})}>
 						<View style={[styles.categoryItem, styles.landmark]}>
 							<Text style={styles.white}>Visit landmarks</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressCategoryItem.bind(this, 'celebrate')}>
+						onPress={this._onPressCategoryItem.bind(this, {category: 'celebrate', categoryColor: styles.celebrate})}>
 						<View style={[styles.categoryItem, styles.celebrate]}>
 							<Text style={styles.white}>Celebrate</Text>
 						</View>

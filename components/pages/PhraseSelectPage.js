@@ -32,10 +32,47 @@ const PhraseSelectPage = React.createClass({
 	},
 	render() {
 		return(
-			<View>
-				<Text>PhraseSelectPage</Text>
+			<View style={[styles.container, this.props.categoryColor]}>
+				<Text>{this.props.category}</Text>
 			</View>
 		)
+	}
+})
+
+const styles = StyleSheet.create({
+	container: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	textInput: {
+		marginTop: 4,
+		marginBottom: 4,
+		height: 40,
+		borderColor: 'gray',
+		borderWidth: 1,
+		width: 200,
+		borderRadius: 10,
+		backgroundColor: 'white',
+	},
+	welcome: {
+		fontSize: 20,
+		textAlign: 'center',
+		margin: 10,
+	},
+	loginText: {
+		margin: 4,
+		color: 'white',
+		fontSize: 20,
+		textAlign: 'center',
+		margin: 10,
+	},
+	forgotPassword: {
+		color: 'black',
+		fontSize: 14,
+		textDecorationLine: 'underline',
+		textAlign: 'center',
+		margin: 10,
 	}
 })
 
