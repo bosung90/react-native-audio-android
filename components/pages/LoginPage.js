@@ -10,7 +10,7 @@ const {
 	Platform,
 } = React
 
-let LoginPage = React.createClass({
+const LoginPage = React.createClass({
 	getInitialState() {
 		return({
 			ClientID: '',
