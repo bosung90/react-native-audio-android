@@ -50,8 +50,14 @@ const PhraseSelectPage = React.createClass({
 				break
 		}
 	},
-
 	renderPhraseHeader() {
+		return (
+			<View style={[styles.phraseHeader, this.props.route.categoryColor]}>
+				<Text style={[styles.white, {fontSize: 19}]}>{this.props.route.categoryFull}</Text>
+			</View>
+		)
+	},
+	renderSectionHeader() {
 		return (
 			<View style={styles.sectionHeader}>
 				<Text style={{fontSize: 24, color: '#384C61'}}>Select a phrase:</Text>
@@ -60,21 +66,21 @@ const PhraseSelectPage = React.createClass({
 	},
 	renderPhraseRow(rowData) {
 		return (
-			<Text>{rowData}</Text>
+			<View style={styles.phraseRow}>
+				<Text style={{color: '#7B7B7B'}}>{rowData}</Text>
+				{/*<Text style={{color: '#7B7B7B'}}>{'>'}</Text>*/}
+			</View>
 		)
 	},
 	render() {
 		return(
 			<View style={[styles.container]}>
-				<View style={[styles.phraseHeader, this.props.route.categoryColor]}>
-					<Text style={[styles.white, {fontSize: 19}]}>{this.props.route.categoryFull}</Text>
-				</View>
 				{this.renderPhraseHeader()}
+				{this.renderSectionHeader()}
 				<View style={styles.listViewContainer}>
 					<ListView dataSource={this.state.dataSource}
 						renderRow={this.renderPhraseRow} />
 				</View>
-
 			</View>
 		)
 	}
@@ -114,6 +120,14 @@ const styles = StyleSheet.create({
 		shadowColor: 'black',
 		shadowOpacity: 0.3,
 	},
+	phraseRow: {
+		height: 36,
+		marginLeft: 12,
+		justifyContent: 'center',
+		// flexDirection: 'row',
+		// alignItems: 'flex-start',
+	},
+
 })
 
 module.exports = PhraseSelectPage
