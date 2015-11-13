@@ -7,6 +7,8 @@
 const React = require('react-native')
 // const AudioAndroid = require('./custom_modules/android/AudioAndroid')
 const LoginPage = require('./components/pages/LoginPage')
+const CategoryPage = require('./components/pages/CategoryPage')
+
 
 const {
 	StyleSheet,
@@ -23,24 +25,22 @@ const Route = React.createClass({
 	// _play(){
 	// 	AudioAndroid.play()
 	// },
+	renderPage(route, navigator) {
+		switch (route.id) {
+			case 'login':
+				return <LoginPage navigator={navigator} />
+			case 'category':
+				return <CategoryPage navigator={navigator} />
+			default:
+				return <LoginPage navigator={navigator} />
+		}
+	},
+
 	render() {
 		return (
-			<Navigator initialRoute={{name: 'My First Scene', index: 0}} 
-				renderScene={(route, navigator) => 
-					<LoginPage name={route.name} 
-						onForward={() => {
-							var nextIndex = route.index + 1
-							navigator.push({ name: 'Scene ' + nextIndex, index: nextIndex, })
-						}}
-						onBack={() => {
-							if (route.index > 0) {
-								navigator.pop()
-							}
-						}}
-					/>
-				}
+			<Navigator initialRoute={{name: 'My First Scene', index: 0}}
+				renderScene={this.renderPage}
 			/>
-
 		)
 	}
 })

@@ -1,4 +1,5 @@
 const React = require('react-native')
+const CategoryPage = require('./CategoryPage')
 
 const {
 	StyleSheet,
@@ -25,6 +26,7 @@ const LoginPage = React.createClass({
 		} else if(Platform.OS === 'ios') {
 			alert('_onPressLoginButton')
 		}
+		this.props.navigator.push({ id: 'category' })
 	},
 
 	_onPressForgotPasswordButton() {
