@@ -14,6 +14,7 @@ const {
 	Text,
 	View,
 	TouchableHighlight,
+	Navigator,
 } = React
 
 const MyFirstReactNative = React.createClass({
@@ -28,7 +29,21 @@ const MyFirstReactNative = React.createClass({
 	},
 	render() {
 		return (
-			<LoginPage />
+			<Navigator initialRoute={{name: 'My First Scene', index: 0}} 
+				renderScene={(route, navigator) => 
+					<LoginPage name={route.name} 
+						onForward={() => {
+							var nextIndex = route.index + 1
+							navigator.push({ name: 'Scene ' + nextIndex, index: nextIndex, })
+						}}
+						onBack={() => {
+							if (route.index > 0) {
+								navigator.pop()
+							}
+						}}
+					/>
+				}
+			/>
 
 		)
 	}
