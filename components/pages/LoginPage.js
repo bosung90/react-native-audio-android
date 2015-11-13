@@ -1,5 +1,4 @@
 const React = require('react-native')
-const CategoryPage = require('./CategoryPage')
 
 const {
 	StyleSheet,
@@ -24,7 +23,7 @@ const LoginPage = React.createClass({
 		if(Platform.OS === 'android') {
 			ToastAndroid.show('_onPressLoginButton', ToastAndroid.SHORT)
 		} else if(Platform.OS === 'ios') {
-			alert('_onPressLoginButton')
+			// alert('_onPressLoginButton')
 		}
 		this.props.navigator.push({ id: 'category' })
 	},

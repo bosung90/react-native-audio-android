@@ -12,24 +12,7 @@ const {
 
 const CategoryPage = React.createClass({
 	_onPressCategoryItem(e) {
-		switch(e) {
-			case 'city':
-				alert('hello')
-				break
-			case 'food':
-				break
-			case 'nature':
-				break
-			case 'market':
-				break
-			case 'landmark':
-				break
-			case 'celebrate':
-				break
-			default:
-				alert('Cannot find category')
-				break
-		}
+		this.props.navigator.push({ id: 'phrase', category: e })
 	},
 	render(){
 		return(
