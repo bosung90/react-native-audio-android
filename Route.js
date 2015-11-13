@@ -32,7 +32,7 @@ const Route = React.createClass({
 			case 'category':
 				return <CategoryPage navigator={navigator} />
 			case 'phrase':
-				return <PhraseSelectPage navigator={navigator} category={route.category} categoryColor={route.categoryColor} />
+				return <PhraseSelectPage navigator={navigator} route={route} />
 			default:
 				return <CategoryPage navigator={navigator} />
 		}

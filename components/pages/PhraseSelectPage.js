@@ -11,8 +11,13 @@ const {
 } = React
 
 const PhraseSelectPage = React.createClass({
+	getInitialState() {
+		return {
+		}
+	},
+
 	componentDidMount() {
-		switch(this.props.category) {
+		switch(this.props.route.category) {
 			case 'city':
 				break
 			case 'food':
@@ -32,8 +37,8 @@ const PhraseSelectPage = React.createClass({
 	},
 	render() {
 		return(
-			<View style={[styles.container, this.props.categoryColor]}>
-				<Text>{this.props.category}</Text>
+			<View style={[styles.container, this.props.route.categoryColor]}>
+				<Text>{this.props.route.categoryFull}</Text>
 			</View>
 		)
 	}
