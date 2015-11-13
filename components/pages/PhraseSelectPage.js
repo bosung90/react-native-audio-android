@@ -6,13 +6,28 @@ const {
 	View,
 	TouchableHighlight,
 	TextInput,
+	ListView,
 	ToastAndroid,
 	Platform,
 } = React
 
+const samplePhrases = [
+	'A mixture of spices.',
+	'Many kinds of foods.',
+	'World famous chocolates.',
+	'My favorite drink',
+	'A very good cook.',
+	'Made with cream.',
+	'Follow the recipe.',
+	'My compliments to the chef',
+	'The portions are generous',
+]
+
 const PhraseSelectPage = React.createClass({
 	getInitialState() {
+		const ds = new ListView.DataSource({ rowHasChanged(r1, r2){ r1 !== r2 } })
 		return {
+			dataSource: ds.cloneWithRows(samplePhrases),
 		}
 	},
 
@@ -35,15 +50,31 @@ const PhraseSelectPage = React.createClass({
 				break
 		}
 	},
+
+	renderPhraseHeader() {
+		return (
+			<View style={styles.sectionHeader}>
+				<Text style={{fontSize: 24, color: '#384C61'}}>Select a phrase:</Text>
+			</View>
+		)
+	},
+	renderPhraseRow(rowData) {
+		return (
+			<Text>{rowData}</Text>
+		)
+	},
 	render() {
 		return(
 			<View style={[styles.container]}>
 				<View style={[styles.phraseHeader, this.props.route.categoryColor]}>
 					<Text style={[styles.white, {fontSize: 19}]}>{this.props.route.categoryFull}</Text>
 				</View>
-				<View style={[styles.sectionHeader]}>
-					<Text style={{fontSize: 24, color: '#384C61'}}>Select a phrase:</Text>
+				{this.renderPhraseHeader()}
+				<View style={styles.listViewContainer}>
+					<ListView dataSource={this.state.dataSource}
+						renderRow={this.renderPhraseRow} />
 				</View>
+
 			</View>
 		)
 	}
@@ -66,6 +97,11 @@ const styles = StyleSheet.create({
 	},
 	white: {
 		color: 'white',
+	},
+	listViewContainer: {
+		alignSelf: 'stretch',
+		height: 440,
+		backgroundColor: 'white',
 	},
 	sectionHeader: {
 		height: 60,
