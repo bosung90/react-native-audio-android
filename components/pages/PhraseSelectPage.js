@@ -37,8 +37,13 @@ const PhraseSelectPage = React.createClass({
 	},
 	render() {
 		return(
-			<View style={[styles.container, this.props.route.categoryColor]}>
-				<Text>{this.props.route.categoryFull}</Text>
+			<View style={[styles.container]}>
+				<View style={[styles.phraseHeader, this.props.route.categoryColor]}>
+					<Text style={[styles.white, {fontSize: 19}]}>{this.props.route.categoryFull}</Text>
+				</View>
+				<View style={[styles.sectionHeader]}>
+					<Text style={{fontSize: 24, color: '#384C61'}}>Select a phrase:</Text>
+				</View>
 			</View>
 		)
 	}
@@ -47,38 +52,32 @@ const PhraseSelectPage = React.createClass({
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center',
+		paddingTop: 50,
+		justifyContent: 'flex-start',
 		alignItems: 'center',
+		flexDirection: 'column',
 	},
-	textInput: {
-		marginTop: 4,
-		marginBottom: 4,
-		height: 40,
-		borderColor: 'gray',
-		borderWidth: 1,
-		width: 200,
-		borderRadius: 10,
-		backgroundColor: 'white',
+	phraseHeader: {
+		height: 100,
+		justifyContent: 'flex-end',
+		alignSelf: 'stretch',
+		alignItems: 'center',
+		paddingBottom: 8,
 	},
-	welcome: {
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10,
-	},
-	loginText: {
-		margin: 4,
+	white: {
 		color: 'white',
-		fontSize: 20,
-		textAlign: 'center',
-		margin: 10,
 	},
-	forgotPassword: {
-		color: 'black',
-		fontSize: 14,
-		textDecorationLine: 'underline',
-		textAlign: 'center',
-		margin: 10,
-	}
+	sectionHeader: {
+		height: 60,
+		backgroundColor: '#E7F8FA',
+		justifyContent: 'center',
+		alignSelf: 'stretch',
+		alignItems: 'center',
+		paddingBottom: 8,
+		shadowOffset: {height: 2},
+		shadowColor: 'black',
+		shadowOpacity: 0.3,
+	},
 })
 
 module.exports = PhraseSelectPage
