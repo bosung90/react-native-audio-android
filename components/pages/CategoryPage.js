@@ -11,6 +11,26 @@ const {
 } = React
 
 const CategoryPage = React.createClass({
+	_onPressCategoryItem(e) {
+		switch(e) {
+			case 'city':
+				alert('hello')
+				break
+			case 'food':
+				break
+			case 'nature':
+				break
+			case 'market':
+				break
+			case 'landmark':
+				break
+			case 'celebrate':
+				break
+			default:
+				alert('Cannot find category')
+				break
+		}
+	},
 	render(){
 		return(
 			<View style={styles.container}>
@@ -20,37 +40,37 @@ const CategoryPage = React.createClass({
 				</View>
 				<View style={styles.categoryContainer}>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressLoginButton}>
+						onPress={this._onPressCategoryItem.bind(this, 'city')}>
 						<View style={[styles.categoryItem, styles.city]}>
 							<Text style={styles.white}>Visit the city</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressLoginButton}>
+						onPress={this._onPressCategoryItem.bind(this, 'food')}>
 						<View style={[styles.categoryItem, styles.food]}>
 							<Text style={styles.white}>Eat delicious food</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressLoginButton}>
+						onPress={this._onPressCategoryItem.bind(this, 'nature')}>
 						<View style={[styles.categoryItem, styles.nature]}>
 							<Text style={styles.white}>Explore nature</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressLoginButton}>
+						onPress={this._onPressCategoryItem.bind(this, 'market')}>
 						<View style={[styles.categoryItem, styles.market]}>
 							<Text style={styles.white}>Go to the market</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressLoginButton}>
+						onPress={this._onPressCategoryItem.bind(this, 'landmark')}>
 						<View style={[styles.categoryItem, styles.landmark]}>
 							<Text style={styles.white}>Visit landmarks</Text>
 						</View>
 					</TouchableHighlight>
 					<TouchableHighlight underlayColor='clear' 
-						onPress={this._onPressLoginButton}>
+						onPress={this._onPressCategoryItem.bind(this, 'celebrate')}>
 						<View style={[styles.categoryItem, styles.celebrate]}>
 							<Text style={styles.white}>Celebrate</Text>
 						</View>
