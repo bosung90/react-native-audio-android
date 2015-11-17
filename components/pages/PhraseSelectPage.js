@@ -50,6 +50,9 @@ const PhraseSelectPage = React.createClass({
 				break
 		}
 	},
+	_onPressPhraseRow(rowID) {
+
+	},
 	renderPhraseHeader() {
 		return (
 			<View style={[styles.phraseHeader, this.props.route.categoryColor]}>
@@ -64,14 +67,19 @@ const PhraseSelectPage = React.createClass({
 			</View>
 		)
 	},
-	renderPhraseRow(rowData) {
+	renderPhraseRow(rowData, sectionID, rowID) {
 		return (
-			<View style={styles.phraseRow}>
+			<TouchableHighlight style={styles.phraseRow} onPress={this._onPressPhraseRow.bind(this, rowID)} underlayColor='#E7F8FA' >
 				<View style={styles.phraseRowInnerView}>
 					<Text style={styles.greyColor}>{rowData}</Text>
 					<Text style={[styles.greyColor, {marginRight: 15}]}>{'>'}</Text>
 				</View>
-			</View>
+			</TouchableHighlight>
+		)
+	},
+	renderPhraseRowSeparator(sectionID, rowID, adjacentRowHighlighted) {
+		return (
+			<View style={{height: 1, backgroundColor: '#ECECEC'}} />
 		)
 	},
 	render() {
@@ -81,7 +89,8 @@ const PhraseSelectPage = React.createClass({
 				{this.renderSectionHeader()}
 				<View style={styles.listViewContainer}>
 					<ListView dataSource={this.state.dataSource}
-						renderRow={this.renderPhraseRow} />
+						renderRow={this.renderPhraseRow}
+						renderSeparator={this.renderPhraseRowSeparator} />
 				</View>
 			</View>
 		)
@@ -127,7 +136,7 @@ const styles = StyleSheet.create({
 	},
 	phraseRow: {
 		height: 36,
-		marginLeft: 12,
+		paddingLeft: 12,
 		justifyContent: 'center',
 	},
 	phraseRowInnerView: {
