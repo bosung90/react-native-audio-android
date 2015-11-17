@@ -67,8 +67,10 @@ const PhraseSelectPage = React.createClass({
 	renderPhraseRow(rowData) {
 		return (
 			<View style={styles.phraseRow}>
-				<Text style={{color: '#7B7B7B'}}>{rowData}</Text>
-				{/*<Text style={{color: '#7B7B7B'}}>{'>'}</Text>*/}
+				<View style={styles.phraseRowInnerView}>
+					<Text style={styles.greyColor}>{rowData}</Text>
+					<Text style={[styles.greyColor, {marginRight: 15}]}>{'>'}</Text>
+				</View>
 			</View>
 		)
 	},
@@ -104,6 +106,9 @@ const styles = StyleSheet.create({
 	white: {
 		color: 'white',
 	},
+	greyColor: {
+		color: '#7B7B7B',
+	},
 	listViewContainer: {
 		alignSelf: 'stretch',
 		height: 440,
@@ -124,10 +129,12 @@ const styles = StyleSheet.create({
 		height: 36,
 		marginLeft: 12,
 		justifyContent: 'center',
-		// flexDirection: 'row',
-		// alignItems: 'flex-start',
 	},
-
+	phraseRowInnerView: {
+		flexDirection: 'row',
+		flexWrap: 'nowrap',
+		justifyContent: 'space-between',
+	},
 })
 
 module.exports = PhraseSelectPage
