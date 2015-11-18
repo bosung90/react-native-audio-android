@@ -21,6 +21,15 @@ const samplePhrases = [
 	'Follow the recipe.',
 	'My compliments to the chef',
 	'The portions are generous',
+	'A mixture of spices.',
+	'Many kinds of foods.',
+	'World famous chocolates.',
+	'My favorite drink',
+	'A very good cook.',
+	'Made with cream.',
+	'Follow the recipe.',
+	'My compliments to the chef',
+	'The portions are generous',
 ]
 
 const PhraseSelectPage = React.createClass({

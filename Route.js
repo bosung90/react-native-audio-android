@@ -9,6 +9,7 @@ const React = require('react-native')
 const LoginPage = require('./components/pages/LoginPage')
 const CategoryPage = require('./components/pages/CategoryPage')
 const PhraseSelectPage = require('./components/pages/PhraseSelectPage')
+const RecordActivityPage = require('./components/pages/RecordActivityPage')
 
 const {
 	StyleSheet,
@@ -33,8 +34,10 @@ const Route = React.createClass({
 				return <CategoryPage navigator={navigator} />
 			case 'phrase':
 				return <PhraseSelectPage navigator={navigator} route={route} />
+			case 'record':
+				return <RecordActivityPage navigator={navigator}/>
 			default:
-				return <CategoryPage navigator={navigator} />
+				return <RecordActivityPage navigator={navigator} />
 		}
 	},
 
